@@ -4,7 +4,7 @@ import type { UseQueryResult } from '@tanstack/react-query'
 import type { FoodData } from "../interface/FoodData";
 
 
-const API_URL = 'http://localhost:8080'
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8080'
 
 export function useFoodData(): UseQueryResult<FoodData[], Error> {
     return useQuery<FoodData[]>({
