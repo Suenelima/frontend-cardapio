@@ -1,8 +1,9 @@
+import type { ReactElement } from 'react'
 import './App.css'
 import { useFoodData } from '../hooks/useFoodData'
 import Card from '../components/card'
 
-function App(): JSX.Element {
+function App(): ReactElement {
     const { data } = useFoodData()
 
     return (
