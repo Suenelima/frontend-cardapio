@@ -71,3 +71,32 @@ export default defineConfig([
   },
 ])
 ```
+
+## Deploy
+
+### Docker (Node 24.12.0)
+
+Build com variáveis de ambiente:
+
+```bash
+docker build \
+  --build-arg VITE_API_URL=https://sua-api.com \
+  --build-arg VITE_APP_TITLE=Cardápio \
+  -t cardapio .
+```
+
+Rodar o container:
+
+```bash
+docker run -p 8080:80 cardapio
+```
+
+Acesse `http://localhost:8080`.
+
+### Vercel
+
+1. Conecte o repositório no [Vercel](https://vercel.com).
+2. Defina as **variáveis de ambiente** no painel (ex.: `VITE_API_URL`, `VITE_APP_TITLE`).
+3. O `vercel.json` e o `engines.node` no `package.json` (24.12.0) já estão configurados.
+
+Variáveis no código devem usar o prefixo `VITE_` (ex.: `import.meta.env.VITE_API_URL`).
